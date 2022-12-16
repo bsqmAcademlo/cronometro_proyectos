@@ -25,6 +25,14 @@ h2 {
     min-height: 100vh;
 }
 
+#time {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .box_img {
     text-align: center;
 }
@@ -36,7 +44,6 @@ h2 {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-bottom: 1rem;
 }
 
 .time {

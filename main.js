@@ -2,6 +2,21 @@ const timeHtml = document.querySelector("#time");
 
 const dateFinish = "2023-01-12T23:59:59";
 
+function parseDate(str) {
+    const parseStr = new Date(str);
+    const op = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+    };
+
+    return parseStr.toLocaleDateString("es-co", op);
+}
+
 function parseTime(time) {
     return time.toString().padStart(2, "0");
 }
@@ -33,6 +48,7 @@ const crono = setInterval(() => {
     const { days, distance, hours, minutes, seconds } = getTime(dateFinish);
 
     timeHtml.innerHTML = `
+        <h5>${parseDate(dateFinish)}</h5>
         <div class="box_time">
             <div class="time">
                 <span class="label_number">${days}</span>
