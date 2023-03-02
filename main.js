@@ -1,6 +1,6 @@
 const timeHtml = document.querySelector("#time");
 
-const dateFinish = "2023-01-13T12:00:00";
+const dateFinish = "2023-03-16T23:00:00";
 
 function parseDate(str) {
     const parseStr = new Date(str);
