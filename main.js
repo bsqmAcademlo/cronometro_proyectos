@@ -1,6 +1,6 @@
 const timeHtml = document.querySelector("#time");
 
-const dateFinish = "2023-03-16T23:00:00";
+const dateFinish = "2023-05-11T23:00:00";
 
 function parseDate(str) {
     const parseStr = new Date(str);
@@ -67,7 +67,7 @@ const crono = setInterval(() => {
                 <span class="label_title">S</span>
             </div>
         </div>
-        <p>Tiempo restante para entregar los proyectos</p>
+        <p>Tiempo restante para entregar el ecomerce</p>
     `;
 
     if (distance < 0) {
