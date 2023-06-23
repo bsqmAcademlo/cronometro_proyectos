@@ -1,53 +1,53 @@
 const timeHtml = document.querySelector("#time");
 
-const dateFinish = "2023-05-11T23:00:00";
+const dateFinish = "2023-07-13T23:59:00";
 
 function parseDate(str) {
-    const parseStr = new Date(str);
-    const op = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-    };
+	const parseStr = new Date(str);
+	const op = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+		hour: "numeric",
+		minute: "numeric",
+		second: "numeric",
+	};
 
-    return parseStr.toLocaleDateString("es-co", op);
+	return parseStr.toLocaleDateString("es-co", op);
 }
 
 function parseTime(time) {
-    return time.toString().padStart(2, "0");
+	return time.toString().padStart(2, "0");
 }
 
 const getTime = (deadline) => {
-    const selectDate = new Date(deadline).getTime();
-    const now = new Date().getTime();
-    const distance = selectDate - now;
+	const selectDate = new Date(deadline).getTime();
+	const now = new Date().getTime();
+	const distance = selectDate - now;
 
-    const days = parseTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
-    const hours = parseTime(
-        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    );
-    const minutes = parseTime(
-        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-    );
-    const seconds = parseTime(Math.floor((distance % (1000 * 60)) / 1000));
+	const days = parseTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
+	const hours = parseTime(
+		Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+	);
+	const minutes = parseTime(
+		Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+	);
+	const seconds = parseTime(Math.floor((distance % (1000 * 60)) / 1000));
 
-    return {
-        distance,
-        days,
-        hours,
-        minutes,
-        seconds,
-    };
+	return {
+		distance,
+		days,
+		hours,
+		minutes,
+		seconds,
+	};
 };
 
 const crono = setInterval(() => {
-    const { days, distance, hours, minutes, seconds } = getTime(dateFinish);
+	const { days, distance, hours, minutes, seconds } = getTime(dateFinish);
 
-    timeHtml.innerHTML = `
+	timeHtml.innerHTML = `
         <h5>${parseDate(dateFinish)}</h5>
         <div class="box_time">
             <div class="time">
@@ -70,10 +70,10 @@ const crono = setInterval(() => {
         <p>Tiempo restante para entregar el ecomerce</p>
     `;
 
-    if (distance < 0) {
-        clearInterval(crono);
+	if (distance < 0) {
+		clearInterval(crono);
 
-        timeHtml.innerHTML = `
+		timeHtml.innerHTML = `
             <div>
                 <h2>Se acabo el tiempo... a llorar xd JAJJAJA</h2>
                 <h2 class="hover">Mentiras, si viste esto, tomale SS y escribeme al interno</h2>
@@ -82,5 +82,5 @@ const crono = setInterval(() => {
                 </div>
             </div>
         `;
-    }
+	}
 }, 1000);
